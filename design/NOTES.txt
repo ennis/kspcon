@@ -1,0 +1,115 @@
+- switches to enable/disable specific reaction wheels? LV(launch vehicle)/VESSEL(vessel)/POD(pod) 
+- switches to enable/disable specific RCS thrusters? LV/POD
+- science bay doors
+- utility bay doors
+
+- NAV REF -> SPD REF, with selector
+
+- when and how to use korrys VS switches?
+	- primary rule: light things up only if the pilot should look at it  
+	- korry: 
+		-> to show both the on/off state and some other information on a single place.
+		-> when momentary action is preferred
+		-> when the on/off state should be quickly visible
+		-> or, *if if's a toggle action*, only when a switch guard is not necessary
+		- consider default-on korrys?
+			- in airbus/boeing overhead panels, most korry lights should be off _during normal operation_
+				- facilitate quick visual scan for anomalies
+				- startup: extinguish all OFF lights
+			- what is _normal operation_ in KSP?
+				- most things are ON by default
+		- what other information?
+			- FAULT
+			- AVAIL
+			- ACTY?
+
+
+	- switches: only on/off state, other information elsewhere, or not necessary
+		- use for things that are immediately visible
+		- use when toggle operation is necessary and state should be guarded
+    
+    - by function:
+    	- Thrust limiter
+    		- only LIMIT is interesting
+    		- OFF / [LIMIT] 
+    		- --- / [LIMIT] 
+    	- Lock engine gimbal
+    		- FREE / [LOCK]
+    		- FREE is normal operation
+    	- SAS/RCS masters: probably a korry, but toggle action could work
+    		- either ON or OFF could be considered normal operation 
+    		- probably a ON-lit korry, maybe combined with an activity indicator or a ON/OFF korry
+    			- [ON] / ACTY
+    			- [ON] / OFF
+    		- RCS master for the launch vehicle is useless since it's always on
+    		- "vessel reaction wheel control", or "VSL TORQUE", "VSL RCS"
+    			- toggle action: switch to ON after stage 1 sep, leave alone after
+
+    	- Individual reaction wheels / RCS controls
+    		- OFF is alternate operation
+    		- ON / [OFF]
+    	- Landing legs deploy mode
+    		- auto or manual
+    		- MANUAL / [AUTO]
+    	- Gear up/down: toggle action
+    	- Solar panels: toggle action
+    		- korry: [DEPLOY]/FAULT
+    	- Radiators: toggle action
+    		- korry: [DEPLOY]/FAULT
+    	- Undock: guarded toggle action
+    		- undocking is momentary -> should be a guarded push button
+    	- Cabin lights: toggle action
+    	- Ext lights: toggle action
+    	- Brake: toggle action
+    	- Fairing: guarded toggle action
+    	- Fuel cell: 
+    		- apollo-style: switch
+    		- airbus-style: korry with default OFF
+    	- RAPIER mode
+    		- toggle action
+    		- korry: CLOSED/AIR ?
+
+
+    - mix both
+    	- choose arbitrarily, because both can work for toggle action
+
+ 	- depends on the quality of the prototype korry
+ 		- if not good or too expensive, fallback to 737-style overhead panel (toggle switches + backlit indicators)
+
+ 	- find more uses of korrys outside of the overhead panels
+ 	- the space shuttle cockpit doesn't use korrys at all (or single-light)
+
+
+- ELEC
+	- FUEL CELL
+		- FAULT/ON
+	- SOLAR PANEL
+		- Several options:
+		- UNLK/ON | FAULT
+		- FAULT/ON | UNLK
+- THERMAL
+	- RADIATORS 
+		- FAULT/ON | UNLK
+- LIGHTS
+	- CABIN
+	- EXT
+- DOCKING
+	- UNDOCK ARM
+	- UNDOCK (guarded switch)
+- FAIRING
+	- DEPLOY (guarded switch)
+- FUEL TRANSFER
+	- LF/OX
+		- FLOW (LOAD/DUMP)
+		- PUMP (guarded switch)
+	- MONOPROP
+		- FLOW 
+		- PUMP ON/OFF (guarded switch)
+- CHUTES
+	- ARM 
+	- DEPLOY 
+
+- Gimbal can  
+	- be locked
+	- be limited
+	- be limited on YAW/PITCH/ROLL
