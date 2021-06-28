@@ -109,7 +109,129 @@
 	- ARM 
 	- DEPLOY 
 
-- Gimbal can  
-	- be locked
-	- be limited
-	- be limited on YAW/PITCH/ROLL
+__________________________________________________________________________
+
+List of controls
+
+ANTENNA    RETRACT/DEPLOY   [switch]
+SOLAR      RETRACT/DEPLOY   [switch]
+RADIATOR   RETRACT/DEPLOY   [switch]
+FUEL CELL  ON/OFF           [switch]	-- FUEL CELL FAULT/ON [korry]
+
+REACT WHEEL LV     ON/OFF  [switch]
+REACT WHEEL VESSEL ON/OFF  [switch]
+REACT WHEEL POD    ON/OFF  [switch]
+
+
+SAS ON/OFF  [korry] -- ON/ACTY
+RCS ON/OFF  [korry] -- ON/ACTY
+
+FUEL TRANSFER F/OX     TANK/EXT/OFF [selector]
+FUEL TRANSFER MONOPROP TANK/EXT/OFF [selector]
+
+ENGINE MODE AIR/VACUUM [switch]
+THRUST LIMITER [selector]
+GIMBAL LOCK    [switch]
+
+BRAKE ON/OFF [korry]
+
+LDG GEAR UP/DOWN [switch]
+LDG GEAR UNLK    [indicator]
+LDG GEAR DN      [indicator]
+
+CHUTES ARM     [indicator]
+CHUTES DEPLOY  [guarded switch]
+FAIRING DEPLOY [switch]
+
+UNDOCK [guarded switch]
+ABORT  [guarded switch]
+
+EXT LIGHTS 1 ON/OFF [switch]
+EXT LIGHTS 2 ON/OFF [switch]
+CABIN LIGHTS ON/OFF [switch]
+
+SOLAR PANEL [fault indicator]
+RADIATOR    [fault indicator]
+CONTACT     [indicator]
+FUEL CELL   [fault indicator]
+
+THRUST MAX [push button]
+THRUST CUT [push button]
+
+
+
+__________________________________________________________________________
+
+Indicators:
+
+CONTACT       [green]
+PROP LOW
+MONOPROP LOW
+CHARGE
+OVERHEAT
+HIGH G
+UPLINK
+
+GEAR DOWN (next to toggle)
+GEAR FAULT
+
+REACT WHEEL ACTY
+
+__________________________________________________________________________
+
+Guidelines:
+- for lights => switches
+- for power-related functions => switches
+- for functions with associated caution and warning / fault state => korry
+
+__________________________________________________________________________
+
+Components:
+
+Possible Korry guards:
+- NKK AT499
+- NKK AT4171
+- NKK AT4173
+
+- AML AML76C10TO1P
+
+
+Rotary selectors:
+- ideally, two 90° 3T selectors
+- 5x 30° selectors (probably RS25, anything works, but preferably 4P3T/3P4T)
+
+__________________________________________________________________________
+
+Panels by priority:
+
+Priority 1:
+- SAS/RCS
+- Staging
+- Landing legs, chutes
+- Attitude select
+- Thrust lever
+
+Priority 2:
+- Joystick
+- Brakes
+- Abort
+- Solar/radiator/fuel cells
+
+Priority 3:
+- Lights
+- Engine
+- Display
+- Maneuver
+- Reaction wheels 
+
+
+__________________________________________________________________________
+
+Docking/undocking procedure:
+
+Option A:
+- arm undocking
+	-> undocking button illuminates
+- raise button guard
+- push button
+

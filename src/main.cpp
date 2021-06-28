@@ -57,7 +57,13 @@ void display_test()
 
 void setup()
 {
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(8, INPUT);
+  digitalWrite(2, HIGH);
+  //digitalWrite(3, HIGH);
+
+  /*pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW);
 
   // LED controller
@@ -85,12 +91,12 @@ void setup()
   digitalWrite(LED_BUILTIN, LOW);
   delay(200);
   digitalWrite(LED_BUILTIN, HIGH);
-  delay(200);
+  delay(200);*/
 }
 
 void loop()
 {
-  static uint8_t payload[PTP_MAX_PAYLOAD_SIZE];
+  /*static uint8_t payload[PTP_MAX_PAYLOAD_SIZE];
 
   static uint16_t cur_thrust = 0;
   static bool initialized = false;
@@ -140,5 +146,5 @@ void loop()
     ptp_write_packet(PTP_VERB_SET, ADDROUT_THROTTLE, 2, &new_thrust);
   }
 
-  initialized = true;
+  initialized = true;*/
 }
