@@ -116,11 +116,9 @@ List of controls
 ANTENNA    RETRACT/DEPLOY   [switch]
 SOLAR      RETRACT/DEPLOY   [switch]
 RADIATOR   RETRACT/DEPLOY   [switch]
-FUEL CELL  ON/OFF           [switch]	-- FUEL CELL FAULT/ON [korry]
 
 REACT WHEEL LV     ON/OFF  [switch]
 REACT WHEEL VESSEL ON/OFF  [switch]
-REACT WHEEL POD    ON/OFF  [switch]
 
 
 SAS ON/OFF  [korry] -- ON/ACTY
@@ -141,24 +139,35 @@ LDG GEAR DN      [indicator]
 
 CHUTES ARM     [indicator]
 CHUTES DEPLOY  [guarded switch]
+CHUTES CUT     [guarded switch]
 FAIRING DEPLOY [switch]
 
 UNDOCK [guarded switch]
 ABORT  [guarded switch]
+DOCK SHIELD  OPEN/CLOSE [switch]
 
 EXT LIGHTS 1 ON/OFF [switch]
 EXT LIGHTS 2 ON/OFF [switch]
 CABIN LIGHTS ON/OFF [switch]
 
-SOLAR PANEL [fault indicator]
 RADIATOR    [fault indicator]
 CONTACT     [indicator]
-FUEL CELL   [fault indicator]
 
 THRUST MAX [push button]
 THRUST CUT [push button]
 
+FUEL CELL    ON/FAULT [korry]
+ALTERNATOR   ON/FAULT [korry]
+SOLAR PANELS OFF/FAULT [korry]
+BATT         OFF/FAULT [korry]
+EMER BATT    ON/FAULT [korry]
 
+EMER MONOPROP ON/FAULT [korry]
+EMER FUEL     ON/FAULT [korry]
+
+CTL MODE     NORM/DOCK [korry]
+
+HATCH OPEN/CLOSE
 
 __________________________________________________________________________
 
@@ -183,6 +192,19 @@ Guidelines:
 - for lights => switches
 - for power-related functions => switches
 - for functions with associated caution and warning / fault state => korry
+
+In real cockpits, korry are used to signal an "abnormal" state: faults, but also things that shouldn't be ON during normal operation, or that should be temporary.
+In KSP I don't think there's such a thing as "normal operation".
+-> basically advanced stuff, mostly electrical
+- Maybe fuel cells? enabled by default, but can be shut off
+- Same for alternators
+- Button to cut off solar power
+- Two buttons to enable batteries
+- Fuel jettison?
+- Thrust limiter?
+- emergency monoprop/fuel reserves
+- SAS?
+	- should SAS OFF be considered "abnormal operation"? no
 
 __________________________________________________________________________
 
@@ -225,13 +247,33 @@ Priority 3:
 - Reaction wheels 
 
 
+
+__________________________________________________________________________
+
+Landing: 
+
+- LDG LEGS: flip switch 
+- UNLK indicator lights up
+- when the legs are fully deployed, the DOWN indicator lights up
+- SUSP: flip switch to "LOCK"
+
+
+
 __________________________________________________________________________
 
 Docking/undocking procedure:
 
 Option A:
+On approach:
+- indicator lights up when docked
+- set control mode to docking
+Undocking:
 - arm undocking
-	-> undocking button illuminates
+	-> undocking button lights up
 - raise button guard
 - push button
+	-> button light goes off
+
+
+Option B:
 
