@@ -277,3 +277,17 @@ Undocking:
 
 Option B:
 
+
+
+__________________________________________________________________________
+
+Dimensions:
+
+- toggle switch mounting hole: 12mm dia
+- toggle switch bolt hole: 16mm dia
+- toggle switch guard size: 18x43mm
+
+- illuminated button mounting hole: 16mm
+- korry opening: 18.2mm square
+
+- standard panel height: 3.5in (88.9mm)
