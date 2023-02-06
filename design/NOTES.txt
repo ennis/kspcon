@@ -210,17 +210,32 @@ __________________________________________________________________________
 
 Components:
 
+Better toggles:
+https://www.nkkswitches.com.hk/products/Toggles/Toggles%20S/S21AL/
+
 Possible Korry guards:
 - NKK AT499
 - NKK AT4171
 - NKK AT4173
-
 - AML AML76C10TO1P
 
+Otto flip guards: https://www.otto-controls.com/fg-flip-guards-for-pushbutton-switches-2
+
+Backlit 7-segment LCDs:
+https://www.hoytmeter.com/hlpi-3e-series-lcd-digital-panel-meter.html , but cheaper, obviously
 
 Rotary selectors:
 - ideally, two 90° 3T selectors
 - 5x 30° selectors (probably RS25, anything works, but preferably 4P3T/3P4T)
+
+Laserables:
+https://www.hindleys.com/laser-engraving-laminate.html
+https://kitronik.co.uk/collections/perspex-acrylic-sheets/products/laminates
+https://hobarts.com/collections/laminate
+
+"Reverse laminate" for the korrys
+https://www.908ltd.co.uk/shop/reverse-laser-engraving-laminate/gloss-clear-black
+
 
 __________________________________________________________________________
 
@@ -277,6 +292,253 @@ Undocking:
 
 Option B:
 
+__________________________________________________________________________
+
+Using korrys:
+Whenever it's important to have a visual feedback next to the button:
+- thrust limiter enabled
+- SAS/RCS
+- control mode (precise/normal)
+- brakes
+
+__________________________________________________________________________
+
+
+Indicators:
+	SAS
+	RCS
+	RCS ACTY
+	REACT WHEEL ACTY
+	GIMBAL ACTY
+
+ATTITUDE
+	SAS ON / OFF
+	<attitude buttons>
+
+RCS MASTER ON / OFF [enables all RCS thrusters]
+
+REACT WHEELS
+	LV  ON OFF
+	VSL ON OFF
+
+ENGINE
+	THRUST LIMIT ON / OFF
+	GIMBAL LIMIT ON / OFF
+	MODE   AIR / VAC
+
+WARP
+	SKIP TO MNVR
+	RESET
+	+/-
+
+
+__________________________________________________________________________
+
+Maneuver / autopilot panel:
+
+In-game maneuver:
+- go to map mode
+
+With controller:
+- push NODE button to enter maneuver edit mode
+- push AP/PE/DN/AN to select maneuver time 
+- push ORB+/ORB- to adjust orbit
+- rotate knob to adjust scale
+- rotate/push knob to adjust DV
+
+Display:
+- TAp, TPe, Ap, Pe, Encounter
+- Maneuver indicator
+- Button to switch displays:
+	- TAp/TPe
+	- Ap/Pe
+	- Intercept
+- Orientation indicator 
+
+__________________________________________________________________________
+
+Idea: group by frequency of usage
+
+## Components that have a possible failure state:
+- antennae
+- solar panels
+- radiators
+
+## Actions that can be done automatically by staging:
+- fairing deploy
+- engine arm
+- stage sep
+- tower jett
+Those should be buttons
+
+## "Mission actions": non-reversible states
+- Undocking
+- Tower jett
+
+
+Attitude group:
+* SAS ON/OFF
+* RCS MASTER ON/OFF
+* Attitude selection korrys	
+	* HOLD
+	* NODE
+	* ...
+
+Display group:
+* Two MFDs (backlit 7-segment LCDs): 
+	* Time display: time to apo/peri/node, mission clock
+	* Remaining stage delta-V 
+
+Deployment group:
+* antenna deploy (breakable): korry OFF|FAULT
+* solar panel deploy (breakable): korry OFF|FAULT
+* radiator deploy (breakable): korry OFF|FAULT
+* hatch open: toggle
+
+Staging group:
+* Arm (guarded toggle)
+* Stage (backlit button) 
+
+Abort group:
+* Abort (guarded button or toggle)
+
+Docking group:
+* Docking controls
+	* Docking SAFE/ARM
+	* Undock button
+* Fuel transfer (korry or 3-way switches)
+
+Time warp group:
+
+
+Node group:
+
+
+Landing group:
+* Landing legs / gear
+	* GEAR UP / DOWN switch
+	* Possibly an indicator next to it (UNLK/DOWN?)
+* BRAKE ON / OFF TOGGLE
+* CHUTES MAN ARM / SAFE
+* Deploy chutes
+
+Throttle group:
+* throttle
+	* what kind of control?
+	* probably rotary + 7 seg display
+* cut
+
+Lights and action groups:
+* toggle switches
+
+
+Engine group (optional):
+* engine shutdown: korry OFF/ON
+* AIR/VACUUM mode (for RAPIER)
+ 	
+
+Adv attitude control (optional, extension):
+* per-stage react wheel enable/disable
+* per-stage RCS thruster enable/disable
+* engine gimbal lock / gimbal limit / thrust limiter
+
+__________________________________________________________________________
+
+Scenario: docking with station
+
+1. Switch SAS ON and RCS ON
+	- Toggle ATTITUDE / SAS / ENABLE - SAS indicator lit
+	- Check RCS MASTER / DISABLE - RCS indicator unlit
+2. Switch vessel reaction wheels OFF
+	- Toggle REACT WHEELS / VSL / OFF
+3. Enable gimbal limit
+	- Toggle ENGINE / GIMBAL LIMIT 
+4. Throttle up
+	- Spin target throttle %
+5. Start first stage
+	- Toggle STAGE / ARM
+	- Press STAGE button 
+		- THRUST indicator lit
+		- SAS ACTY blinking
+		- GIMBAL ACTY blinking
+	- after a while: PROP LOW warning
+6. Second stage
+	- MASTER CAUTION lit
+	- FLAMEOUT lit
+	- Press STAGE button
+7. Manual fairing deploy - safing
+	- (Optional) Switch TWR JETT to MAN / Press TWR JETT
+	- Switch FAIRING to MAN
+	- Press FAIRING / DEPLOY MAN
+	- Switch STAGE / SAFE
+	- Switch SOLAR / DEPLOY
+	- Switch RADIATOR / DEPLOY
+	- Switch REACT WHEELS / VSL / ON
+8. Circularization
+	- Press MAP button
+	- Scroll MANEUVER / TIME to create and adjust time of manueuver
+	- Scroll MANEUVER / {PROGRADE,NORMAL,RADIAL}
+	- Confirm by pressing a button
+9. Skip to next maneuver
+	- Press WARP / SKIP TO MNVR
+	- Press ATTITUDE / MNVR
+	- Wait 
+	- Full throttle
+	- Cut throttle button
+10. Manual engine test
+	- Set ENGINE / MAN 
+	- Throttle up
+	- Set ENGINE / AUTO
+11. Rendezvous
+	- Set target
+
+12. Docking
+	- Toggle SAS OFF
+	- Docking: "control from here"
+		- Push PORT CTRL REF - lights up
+	- Use joysticks to control translation and rotation
+	- When docked:
+		- PORT CTRL REF switches off automatically
+		- DOCKING indicator lights up
+		- Toggle DOCKING to SAFE
+
+13. Fuel transfer
+	- Rotate FUEL TRANSFER / F/OX to TANK or EXT
+	- Rotate FUEL TRANSFER / MONOPROP to TANK or EXT
+	- Press button to initiate fuel transfer (FUEL TRANSFER / AVAIL/ON)
+		- not a switch because fuel transfer stops automatically
+	- FUEL TRANSFER indicator lights up
+
+14. Undocking:
+	- Toggle DOCKING to ARM
+	- Press UNDOCK button
+
+15. Deorbit
+	- Press ATTITUDE / RETRO
+	- Throttle up
+
+16. Manual parachute
+	- Switch PARACHUTES to MAN
+		- DEPLOY button lights up
+	- Press PARACHUTES / DEPLOY
+
+
+Scenario: descent & landing
+- Altitude ref LAND
+- SAS ON, ATTITUDE STAB
+- Powered descent
+- Switch GEARS DOWN
+	- Gear UNLK indicator lights up while the landing gear is being deployed
+- CONTACT lights up
+- Cut thrust
+- ENGINE ARM OFF
+- Switch BRAKES ON - BRAKES indicator lights up
+
+Scenario: ascent
+- ENGINE ARM AUTO
+- Throttle up
+- (Press GEAR UNLK indicator?)
+- Switch GEAR UP
 
 
 __________________________________________________________________________
@@ -289,5 +551,13 @@ Dimensions:
 
 - illuminated button mounting hole: 16mm
 - korry opening: 18.2mm square
+- korry size: 16.5x16.5mm
 
 - standard panel height: 3.5in (88.9mm)
+
+- panel round corners radius: 5mm 
+
+- panel inner round corners: 4mm
+
+Font:
+Futura Std Heavy Mod with 1px letter spacing at 16pt
