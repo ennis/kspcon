@@ -339,22 +339,57 @@ Maneuver / autopilot panel:
 In-game maneuver:
 - go to map mode
 
-With controller:
-- push NODE button to enter maneuver edit mode
-- push AP/PE/DN/AN to select maneuver time 
+With controller - maneuver panel:
+- push NODE to display next node params on DISP1+2
+(- push & hold TAP/TPE/TDN/TAN to set maneuver time to Tap/etc.)
 - push ORB+/ORB- to adjust orbit
+- rotate time knob to adjust time
 - rotate knob to adjust scale
+- push buttons to select direction
 - rotate/push knob to adjust DV
+- press CLEAR to delete maneuver node
+
+
+Issue: would like to see both Ap/Pe and DV during maneuver input
+Q: Maybe remove maneuver input for now? Complicated to input by hand (pick time, add orbits, ...)
+A: not sure, would like the rotarys on the navigation panel
 
 Display:
 - TAp, TPe, Ap, Pe, Encounter
 - Maneuver indicator
 - Button to switch displays:
-	- TAp/TPe
-	- Ap/Pe
-	- Intercept
+	- TAp/TPe (MNVR active: no display)
+	- Ap/Pe   (MNVR: set time)
+	- AN/DN   (MNVR: set time)
+	- Intercept distance
+	- Intercept time
+	- Time to node
 - Orientation indicator 
 
+Display 1 (time):
+- Tap, Tpe, Tint1, Tint2, Tnode, MET, Tan, Tdn
+- Node indicator
+
+Display 2 (orbital parameters & speed)
+- AP, PE, Speed, AN, DN
+- speed ref (SURF/ORB/TGT)
+
+__________________________________________________________________________
+
+MFD Displays
+
+2x 4 in square display (https://shop.pimoroni.com/products/hyperpixel-4-square?variant=30138251477075) 
+
+
+Panel construction:
+https://forum.dcs.world/topic/210303-making-panels-project-log
+https://forum.dcs.world/topic/211246-the-toggle-switch-box/
+
+Panels:
+https://github.com/jrsteensen/OpenHornet
+
+Custom LCDs? maybe in the future:
+https://www.yaoyulcd.com/custom_lcd_get_quote.html
 __________________________________________________________________________
 
 Idea: group by frequency of usage
@@ -384,16 +419,25 @@ Attitude group:
 	* NODE
 	* ...
 
-Display group:
-* Two MFDs (backlit 7-segment LCDs): 
+Navigation group:
+* Two or three MFDs (backlit 7-segment LCDs): 
 	* Time display: time to apo/peri/node, mission clock
-	* Remaining stage delta-V 
+	* Distance/speed display 
+* The whole group can be put in "node" mode, in which the displays 
+display the parameters of the next maneuver
+	* Activates maneuver inputs
+
+Display group:
+* Current camera mode
+* Time warp controls
 
 Deployment group:
 * antenna deploy (breakable): korry OFF|FAULT
 * solar panel deploy (breakable): korry OFF|FAULT
 * radiator deploy (breakable): korry OFF|FAULT
 * hatch open: toggle
+
+
 
 Staging group:
 * Arm (guarded toggle)
@@ -428,6 +472,13 @@ Throttle group:
 	* probably rotary + 7 seg display
 * cut
 
+Display group:
+* Show map
+
+Control group:
+* Fine controls ON/OFF
+* Docking mode
+
 Lights and action groups:
 * toggle switches
 
@@ -441,6 +492,12 @@ Adv attitude control (optional, extension):
 * per-stage react wheel enable/disable
 * per-stage RCS thruster enable/disable
 * engine gimbal lock / gimbal limit / thrust limiter
+
+Adv: electrical:
+* alternators
+* fuel cells
+* solar panels
+* batteries
 
 __________________________________________________________________________
 
