@@ -236,6 +236,9 @@ https://hobarts.com/collections/laminate
 "Reverse laminate" for the korrys
 https://www.908ltd.co.uk/shop/reverse-laser-engraving-laminate/gloss-clear-black
 
+https://vink.fr/perspex-spectrum-led-opale-1tl1-tl36-3050x2030x3-mm.html
+https://www.decoupe-plexi-sur-mesure.com
+https://www.innograv.com/en/engraving-materials/laser-engraving-materials
 
 __________________________________________________________________________
 
@@ -486,6 +489,10 @@ Lights and action groups:
 Engine group (optional):
 * engine shutdown: korry OFF/ON
 * AIR/VACUUM mode (for RAPIER)
+
+Misc:
+* trim
+* camera select
  	
 
 Adv attitude control (optional, extension):
@@ -498,6 +505,49 @@ Adv: electrical:
 * fuel cells
 * solar panels
 * batteries
+
+Adv: engine
+* master engine arm/shutdown 
+
+__________________________________________________________________________
+
+Issue with toggle switches: resetting is impossible.
+
+For example, after reverting to launch pad, the SOLAR/ANTENNA/etc. buttons (resettable actions) should go back to their OFF positions, but it's impossible to do so automatically.
+
+List of resettable actions:
+- landing gear should reset automatically to retracted (don't want the gear to automatically extend on mission start)
+- hatch
+- solar panels
+- radiators
+- antenna
+
+Static actions:
+- lights
+- brake (maybe)
+- chutes manual (no equivalent in game, so OK)
+- SAS/RCS toggles
+- fine control
+- docking control
+
+Options:
+- use korrys instead
+- have the user cycle the toggle switch
+- momentary toggle switches 
+
+
+
+__________________________________________________________________________
+
+Module placement guidelines:
+
+Display and indicators closer to the screen (on top):
+- displays
+- caution & warning
+- attitude
+- warp, map display
+
+Joysticks to the side, shouldn't hide the displays ()
 
 __________________________________________________________________________
 
@@ -605,10 +655,11 @@ Dimensions:
 - toggle switch mounting hole: 12mm dia
 - toggle switch bolt hole: 16mm dia
 - toggle switch guard size: 18x43mm
+- toggle top opening: 12mm
 
 - illuminated button mounting hole: 16mm
 - korry opening: 18.2mm square
-- korry size: 16.5x16.5mm
+- korry size: 17x17mm
 
 - standard panel height: 3.5in (88.9mm)
 
@@ -616,5 +667,34 @@ Dimensions:
 
 - panel inner round corners: 4mm
 
+
+Rail size: 529mm (104HP)
+
 Font:
 Futura Std Heavy Mod with 1px letter spacing at 16pt
+
+Panel dimensions (https://intellijel.com/support/1u-technical-specifications):
+
+                              Front Panel    Clear space   Hole-to-hole
+Eurorack 3U					: 128.5mm        110mm         122.5mm
+Eurorack 2U (not standard)	: 84.05mm        ??            78.05mm
+Eurorack 1U					: 39.65mm        22.5mm        33.65mm
+
+Rack unit to panel size        : H-4.85mm  (?)
+Rack unit to hole-to-hole size : H-10.85mm (?)
+
+Screw hole diameter         : 3.2mm
+Screw hole center edge dist : 3.0mm
+
+PCB hole pitch: 2.54mm
+Minimum korry button separation: 8 holes, 20.32mm (0.8in)
+
+!!! Don't project anything other than points between drawings, it results in discontinuous curves
+when exporting to DXF (https://forums.autodesk.com/t5/fusion-360-design-validate/projected-line-segments-not-connected/m-p/6990538#M106144)
+__________________________________________________________________________
+
+Design resources:
+
+https://aerodynamix.com/edge-lit-panels-and-overlays/
+https://www.astronics.com/product?productgroup=Lighting%20Systems&subproduct=cockpit%20controls%20%26%20panels
+https://www.aviationtoday.com/2013/03/01/system-design-effective-avionics-backlighting/
